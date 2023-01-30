@@ -1,3 +1,5 @@
+puts "******* BEM VINDO A SUA AGENDA ********"
+
 agenda = {
     Anna: "1111-1111",
     Pedro: "1111-2222"
@@ -9,6 +11,7 @@ while true
     puts "[2] Atualizar"
     puts "[3] Exibir"
     puts "[4] Excluir"
+    puts "[5] Sair"
     
     print "Escolha uma opcao: "
     escolha = gets.chomp()
@@ -36,7 +39,22 @@ while true
             agenda[nome.to_sym] = telefone
         end
     when "3"
-        
+        agenda.each do |nome, telefone|
+            puts "Nome: #{nome} - Telefone: #{telefone}"
+        end
+    when "4"
+        puts "Digite o nome a ser apagado: "
+        nome = gets.chomp()
+        if agenda[nome.to_sym].nil?
+            puts "Este nome nao existe!"
+        else
+            agenda.delete(nome.to_sym)
+            puts "#{nome} foi deletado."
+        end
+    when "5"
+        break    
+    else
+        puts "Ops, opcao invalida!"
     end
-    puts agenda
 end
+puts " ********  BRIGADUUU  ******** "
