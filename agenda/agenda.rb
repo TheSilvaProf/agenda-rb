@@ -1,3 +1,5 @@
+puts "############## AGENDA ###############"
+puts
 @agenda = [
     {nome: "Fabio", telefone: "1111-2222"},
     {nome: "Sheila", telefone: "2222-2222"}]
@@ -7,6 +9,7 @@ def todos_contatos()
     puts "#{contato[:nome]} - #{contato[:telefone]}"
     end
     puts "-----------------------------------------"
+    puts
 end
 
 def adicionar_contato()
@@ -15,7 +18,8 @@ def adicionar_contato()
     print "Telefone: "
     telefone = gets.chomp()
 
-    @agenda << {nome: nome, telefone: telefone}    
+    @agenda << {nome: nome, telefone: telefone}
+puts
 end
 
 def ver_contato()
@@ -27,7 +31,8 @@ def ver_contato()
             break
         end
     end
-puts "----------------------------------------------------"    
+puts "----------------------------------------------------"
+puts
 end
 
 def editar_contato()
@@ -64,4 +69,28 @@ def remover_contato()
     end    
 end
 
+loop do
+    
+puts "1. Contatos\n2. Adicionar Contato\n3. Ver Contato\n4. Editar Contato\n5. Remover Contato\n0. Sair\0"
+    codigo = gets.to_i
 
+    case 
+    when codigo == 0
+        puts
+        puts "Tchauuuuú!"
+        break        
+    when codigo == 1
+        todos_contatos()
+    when codigo == 2
+        adicionar_contato()
+    when codigo == 3
+        ver_contato()
+    when codigo == 4
+        editar_contato()
+    when codigo == 5
+        remover_contato()         
+    else
+        puts "Função inexistente!"
+        puts "----------------------------------------"
+    end
+end
